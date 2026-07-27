@@ -6,7 +6,7 @@ A modern, responsive Hospital Management System built using **HTML, CSS, and Jav
 
 # 🚀 Live Demo
 
-🌐 **Website:** [https://your-live-demo-link.vercel.app](https://medicare-hospital-management-23.netlify.app/)
+🌐 **Website:** [https://medicare-hospital-management-23.netlify.app/](https://medicare-hospital-management-23.netlify.app/)
 
 ## 📌 Features
 
@@ -274,9 +274,9 @@ This project is licensed under the MIT License.
 
 B.Tech Computer Science & Engineering
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/prajapativikram
 
-LinkedIn: https://linkedin.com/in/yourprofile
+LinkedIn: https://www.linkedin.com/in/vikram-kumar-0b19a9248/
 
 ---
 
