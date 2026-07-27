@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Settings | MediCare HMS</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/dashboard2.css" />
+
+    <link rel="stylesheet" href="css/forms.css" />
+
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo-circle">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+
+          <div class="logo-text">
+            <h2>MediCare</h2>
+
+            <small> Hospital Management </small>
+          </div>
+        </div>
+
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <span></span>
+
+          <span></span>
+
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard">
+          <i class="fa-solid fa-chart-line nav-icon"></i>
+
+          <span class="nav-text"> Dashboard </span>
+        </a>
+
+        <a href="patients.html" class="nav-item" data-page="patients">
+          <i class="fa-solid fa-users nav-icon"></i>
+
+          <span class="nav-text"> Patients </span>
+        </a>
+
+        <a href="doctors.html" class="nav-item" data-page="doctors">
+          <i class="fa-solid fa-user-doctor nav-icon"></i>
+
+          <span class="nav-text"> Doctors </span>
+        </a>
+
+        <a href="appointments.html" class="nav-item" data-page="appointments">
+          <i class="fa-solid fa-calendar-check nav-icon"></i>
+
+          <span class="nav-text"> Appointments </span>
+        </a>
+
+        <a href="billing.html" class="nav-item" data-page="billing">
+          <i class="fa-solid fa-file-invoice-dollar nav-icon"></i>
+
+          <span class="nav-text"> Billing </span>
+        </a>
+
+        <a href="reports.html" class="nav-item" data-page="reports">
+          <i class="fa-solid fa-chart-pie nav-icon"></i>
+
+          <span class="nav-text"> Reports </span>
+        </a>
+
+        <a href="settings.html" class="nav-item active" data-page="settings">
+          <i class="fa-solid fa-gear nav-icon"></i>
+
+          <span class="nav-text"> Settings </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+
+          <span class="nav-text"> Logout </span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 id="pageTitle">Settings</h1>
+
+          <p class="page-subtitle">
+            Manage system preferences and configurations
+          </p>
+        </div>
+
+        <div class="topbar-right">
+          <button id="themToggle" class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <div class="user-profile">
+            <img
+              src="https://ui-avatars.com/api/?name=Admin+User"
+              class="user-avatar"
+              alt="User"
+            />
+
+            <div class="user-profile">
+              <img
+                src="https://ui-avatars.com/api/?name=Admin+User&background=2563eb&color=ffffff"
+                class="user-avatar"
+                alt="User"
+              />
+
+              <div class="user-info">
+                <p id="userName">Admin User</p>
+
+                <small id="userRole"> Administrator </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-wrapper">
+        <div class="settings-grid">
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-icon hospital">
+                <i class="fa-solid fa-hospital"></i>
+              </div>
+
+              <div>
+                <h2>Hospital Settings</h2>
+
+                <p>Manage hospital information</p>
+              </div>
+            </div>
+
+            <form id="hospitalSettingsForm" class="form-grid">
+              <div class="form-group">
+                <label for="hospitalName"> Hospital Name </label>
+
+                <input
+                  type="text"
+                  id="hospitalName"
+                  value="MediCare Hospital"
+                  placeholder="Enter hospital name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="hospitalEmail"> Hospital Email </label>
+
+                <input
+                  type="email"
+                  id="hospitalEmail"
+                  value="support@medicare.com"
+                  placeholder="Enter email"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="hospitalPhone"> Hospital Phone </label>
+
+                <input
+                  type="tel"
+                  id="hospitalPhone"
+                  value="1-800-MEDICARE"
+                  placeholder="Enter phone number"
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label for="hospitalAddress"> Hospital Address </label>
+
+                <textarea
+                  id="hospitalAddress"
+                  placeholder="Enter hospital address"
+                >
+123 Medical Street, Hospital City</textarea
+                >
+              </div>
+
+              <div class="form-group full-width">
+                <label for="hospitalLogoUrl"> Logo URL </label>
+
+                <input
+                  type="url"
+                  id="hospitalLogoUrl"
+                  placeholder="https://example.com/logo.png"
+                />
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Save Hospital Settings
+              </button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-icon user">
+                <i class="fa-solid fa-user"></i>
+              </div>
+
+              <div>
+                <h2>User Profile</h2>
+
+                <p>Update administrator details</p>
+              </div>
+            </div>
+
+            <form id="userProfileForm" class="form-grid">
+              <div class="form-group">
+                <label for="userName"> Full Name </label>
+
+                <input type="text" id="userName" value="Admin User" />
+              </div>
+
+              <div class="form-group">
+                <label for="userEmail"> Email </label>
+
+                <input type="email" id="userEmail" value="admin@hospital.com" />
+              </div>
+
+              <div class="form-group">
+                <label for="userRole"> Role </label>
+
+                <input
+                  type="text"
+                  id="userRole"
+                  value="Administrator"
+                  disabled
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="userPhone"> Phone </label>
+
+                <input
+                  type="tel"
+                  id="userPhone"
+                  placeholder="Enter phone number"
+                />
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <i class="fa-solid fa-user-pen"></i>
+
+                Update Profile
+              </button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-icon security">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+
+              <div>
+                <h2>Security Settings</h2>
+
+                <p>Manage account security</p>
+              </div>
+            </div>
+
+            <form id="securityForm" class="form-grid">
+              <div class="form-group">
+                <label for="currentPassword"> Current Password </label>
+
+                <input
+                  type="password"
+                  id="currentPassword"
+                  placeholder="Enter current password"
+                />
+
+                <span class="error-msg" id="currentPasswordError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="newPassword"> New Password </label>
+
+                <input
+                  type="password"
+                  id="newPassword"
+                  placeholder="Enter new password"
+                />
+
+                <span class="error-msg" id="newPasswordError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="confirmPassword"> Confirm Password </label>
+
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  placeholder="Confirm password"
+                />
+
+                <span class="error-msg" id="confirmPasswordError"></span>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <i class="fa-solid fa-key"></i>
+
+                Change Password
+              </button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-icon appearance">
+                <i class="fa-solid fa-palette"></i>
+              </div>
+
+              <div>
+                <h2>Appearance</h2>
+
+                <p>Customize dashboard theme</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label> Theme Mode </label>
+
+              <div class="theme-options">
+                <button
+                  type="button"
+                  class="theme-option"
+                  id="lightThemeBtn"
+                  data-theme="light"
+                >
+                  <i class="fa-solid fa-sun"></i>
+
+                  Light Mode
+                </button>
+
+                <button
+                  type="button"
+                  class="theme-option"
+                  id="darkThemeBtn"
+                  data-theme="dark"
+                >
+                  <i class="fa-solid fa-moon"></i>
+
+                  Dark Mode
+                </button>
+
+                <button
+                  type="button"
+                  class="theme-option"
+                  id="autoThemeBtn"
+                  data-theme="auto"
+                >
+                  <i class="fa-solid fa-gear"></i>
+
+                  Auto
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-icon notification">
+                <i class="fa-solid fa-bell"></i>
+              </div>
+
+              <div>
+                <h2>Notifications</h2>
+
+                <p>Manage alert preferences</p>
+              </div>
+            </div>
+
+            <form id="notificationsForm" class="notification-form">
+              <div class="checkbox-group">
+                <input type="checkbox" id="emailNotifications" checked />
+
+                <label for="emailNotifications"> Email Notifications </label>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="appointmentAlerts" checked />
+
+                <label for="appointmentAlerts"> Appointment Reminders </label>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="patientAlerts" checked />
+
+                <label for="patientAlerts"> New Patient Alerts </label>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="billingAlerts" checked />
+
+                <label for="billingAlerts"> Billing Alerts </label>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <i class="fa-solid fa-check"></i>
+
+                Save Preferences
+              </button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <div class="settings-icon database">
+                <i class="fa-solid fa-database"></i>
+              </div>
+
+              <div>
+                <h2>Data Management</h2>
+
+                <p>Backup and manage system data</p>
+              </div>
+            </div>
+
+            <div class="data-actions">
+              <button id="exportAllDataBtn" class="btn-secondary">
+                <i class="fa-solid fa-file-export"></i>
+
+                Export All Data
+              </button>
+
+              <button id="backupDataBtn" class="btn-secondary">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+
+                Backup Data
+              </button>
+
+              <button id="clearDataBtn" class="btn-danger">
+                <i class="fa-solid fa-trash"></i>
+
+                Clear All Data
+              </button>
+            </div>
+
+            <p class="warning-text">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+
+              Warning: Clearing data cannot be undone. Please create a backup
+              first.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="confirmDialog" class="modal hidden">
+      <div class="modal-content small">
+        <div class="modal-icon danger">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+        <h2>Confirm Action</h2>
+
+        <p id="confirmMessage">Are you sure? This action cannot be undone.</p>
+
+        <div class="modal-actions">
+          <button id="confirmBtn" class="btn-danger">
+            <i class="fa-solid fa-check"></i>
+
+            Confirm
+          </button>
+
+          <button id="cancelConfirmBtn" class="btn-secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/settings.js"></script>
+  </body>
+</html>

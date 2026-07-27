@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Doctors Management | MediCare Hospital Management System</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard2.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo-circle">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+
+          <div class="logo-text">
+            <h2>MediCare</h2>
+            <small>Hospital Management</small>
+          </div>
+        </div>
+
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard">
+          <i class="fa-solid fa-chart-line nav-icon"></i>
+
+          <span class="nav-text"> Dashboard </span>
+        </a>
+
+        <a href="patients.html" class="nav-item" data-page="patients">
+          <i class="fa-solid fa-user-group nav-icon"></i>
+
+          <span class="nav-text"> Patients </span>
+        </a>
+
+        <a href="doctors.html" class="nav-item active" data-page="doctors">
+          <i class="fa-solid fa-user-doctor nav-icon"></i>
+
+          <span class="nav-text"> Doctors </span>
+        </a>
+
+        <a href="appointments.html" class="nav-item" data-page="appointments">
+          <i class="fa-solid fa-calendar-check nav-icon"></i>
+
+          <span class="nav-text"> Appointments </span>
+        </a>
+
+        <a href="billing.html" class="nav-item" data-page="billing">
+          <i class="fa-solid fa-file-invoice-dollar nav-icon"></i>
+
+          <span class="nav-text"> Billing </span>
+        </a>
+
+        <a href="reports.html" class="nav-item" data-page="reports">
+          <i class="fa-solid fa-chart-pie nav-icon"></i>
+
+          <span class="nav-text"> Reports </span>
+        </a>
+
+        <a href="settings.html" class="nav-item" data-page="settings">
+          <i class="fa-solid fa-gear nav-icon"></i>
+
+          <span class="nav-text"> Settings </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+
+          <span class="nav-text"> Logout </span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 id="pageTitle">Doctors Management</h1>
+
+          <p class="page-subtitle">
+            Manage doctors, departments and availability
+          </p>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Search -->
+
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="text" placeholder="Search doctors..." />
+          </div>
+
+          <!-- Notification -->
+
+          <button class="notification-btn">
+            <i class="fa-regular fa-bell"></i>
+
+            <span class="notification-count"> 3 </span>
+          </button>
+
+          <!-- Theme -->
+
+          <button id="themToggle" class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- User -->
+
+          <div class="user-profile">
+            <img
+              src="https://ui-avatars.com/api/?name=Admin+User&background=2563eb&color=ffffff"
+              class="user-avatar"
+              alt="Admin"
+            />
+
+            <div class="user-info">
+              <p id="userName">Admin User</p>
+
+              <small id="userRole"> Administrator </small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-wrapper">
+        <section class="action-bar">
+          <div class="page-actions">
+            <div
+              class="search-container"
+              style="position: relative; width: 100%"
+            >
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="
+                  position: absolute;
+                  left: 15px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  color: #777;
+                  font-size: 16px;
+                  z-index: 1;
+                "
+              >
+              </i>
+
+              <input
+                type="text"
+                id="searchDoctor"
+                class="search-input"
+                placeholder="Search doctors by name, department or phone..."
+                style="
+                  width: 100%;
+                  height: 42px;
+                  padding-left: 45px;
+                  padding-right: 15px;
+                  border: 1px solid #ddd;
+                  border-radius: 8px;
+                  font-size: 14px;
+                  box-sizing: border-box;
+                "
+              />
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button id="addDoctorBtn" class="btn-primary">
+              <i class="fa-solid fa-user-plus"></i>
+
+              Add Doctor
+            </button>
+
+            <button id="exportDoctorsCsv" class="btn-secondary">
+              <i class="fa-solid fa-file-csv"></i>
+
+              Export CSV
+            </button>
+          </div>
+        </section>
+
+        <section class="filter-section">
+          <div class="filter-title">
+            <i class="fa-solid fa-filter"></i>
+
+            Filters
+          </div>
+
+          <select id="filterDepartment" class="filter-select">
+            <option value="">All Departments</option>
+
+            <option value="Cardiology">Cardiology</option>
+
+            <option value="Neurology">Neurology</option>
+
+            <option value="Orthopedics">Orthopedics</option>
+
+            <option value="General Surgery">General Surgery</option>
+
+            <option value="Pediatrics">Pediatrics</option>
+          </select>
+        </section>
+
+        <section class="table-container">
+          <div class="card-header">
+            <h2>Doctors Directory</h2>
+
+            <span class="record-count"> Medical Staff </span>
+          </div>
+
+          <div class="doctors-grid" id="doctorsGrid">
+            <div class="empty-state">
+              <i class="fa-solid fa-user-doctor"></i>
+
+              <br /><br />
+
+              No doctors found
+            </div>
+          </div>
+        </section>
+
+        <div class="pagination">
+          <button id="prevBtn" class="btn-pagination">
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Previous
+          </button>
+
+          <span id="pageInfo"> Page 1 </span>
+
+          <button id="nextBtn" class="btn-pagination">
+            Next
+
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="doctorModal" class="modal hidden">
+        <div class="modal-content large">
+          <button class="modal-close">&times;</button>
+
+          <div class="modal-header">
+            <h2 id="modalTitle">Add Doctor</h2>
+
+            <p>Fill in the doctor's information below.</p>
+          </div>
+
+          <form id="doctorForm" class="form-grid">
+            <div class="form-group">
+              <label for="doctorId"> Doctor ID </label>
+
+              <input type="text" id="doctorId" disabled />
+            </div>
+
+            <div class="form-group">
+              <label for="doctorName"> Full Name * </label>
+
+              <input type="text" id="doctorName" required />
+
+              <span class="error-msg" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="doctorDepartment"> Department * </label>
+
+              <select id="doctorDepartment" required>
+                <option value="">Select Department</option>
+
+                <option value="Cardiology">Cardiology</option>
+
+                <option value="Neurology">Neurology</option>
+
+                <option value="Orthopedics">Orthopedics</option>
+
+                <option value="General Surgery">General Surgery</option>
+
+                <option value="Pediatrics">Pediatrics</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="doctorExperience"> Experience (Years) * </label>
+
+              <input type="number" id="doctorExperience" min="0" required />
+            </div>
+
+            <div class="form-group">
+              <label for="doctorPhone"> Phone * </label>
+
+              <input type="tel" id="doctorPhone" required />
+
+              <span class="error-msg" id="phoneError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="doctorEmail"> Email * </label>
+
+              <input type="email" id="doctorEmail" required />
+
+              <span class="error-msg" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="doctorQualification"> Qualification * </label>
+
+              <input
+                type="text"
+                id="doctorQualification"
+                placeholder="MBBS, MD, MS..."
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="doctorAvailability"> Availability * </label>
+
+              <select id="doctorAvailability" required>
+                <option value="">Select Availability</option>
+
+                <option value="Monday-Friday">Monday-Friday</option>
+
+                <option value="Monday-Saturday">Monday-Saturday</option>
+
+                <option value="24/7">24/7</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="doctorSalary"> Salary ($) * </label>
+
+              <input type="number" id="doctorSalary" min="0" required />
+            </div>
+
+            <div class="form-group">
+              <label for="doctorPhoto"> Photo URL </label>
+
+              <input
+                type="url"
+                id="doctorPhoto"
+                placeholder="https://example.com/photo.jpg"
+              />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-submit">
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Save Doctor
+              </button>
+
+              <button type="button" class="btn-cancel" id="cancelBtn">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="confirmDialog" class="modal hidden">
+        <div class="modal-content small">
+          <div class="delete-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+
+          <h2>Confirm Delete</h2>
+
+          <p id="confirmMessage">
+            Are you sure you want to delete this doctor?
+          </p>
+
+          <div class="modal-actions">
+            <button id="confirmBtn" class="btn-danger">
+              <i class="fa-solid fa-trash"></i>
+
+              Delete
+            </button>
+
+            <button id="cancelConfirmBtn" class="btn-secondary">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toast -->
+
+      <div id="toast" class="toast hidden"></div>
+    </main>
+
+    <!-- JavaScript -->
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/doctor.js"></script>
+  </body>
+</html>

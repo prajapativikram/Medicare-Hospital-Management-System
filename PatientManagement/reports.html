@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Reports | MediCare Hospital Management System</title>
+
+    <!-- Google Font -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Existing CSS -->
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/dashboard2.css" />
+
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo-circle">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+
+          <div class="logo-text">
+            <h2>MediCare</h2>
+
+            <small> Hospital Management </small>
+          </div>
+        </div>
+
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <span></span>
+
+          <span></span>
+
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard">
+          <i class="fa-solid fa-chart-line nav-icon"></i>
+
+          <span class="nav-text"> Dashboard </span>
+        </a>
+
+        <a href="patients.html" class="nav-item" data-page="patients">
+          <i class="fa-solid fa-user-group nav-icon"></i>
+
+          <span class="nav-text"> Patients </span>
+        </a>
+
+        <a href="doctors.html" class="nav-item" data-page="doctors">
+          <i class="fa-solid fa-user-doctor nav-icon"></i>
+
+          <span class="nav-text"> Doctors </span>
+        </a>
+
+        <a href="appointments.html" class="nav-item" data-page="appointments">
+          <i class="fa-solid fa-calendar-check nav-icon"></i>
+
+          <span class="nav-text"> Appointments </span>
+        </a>
+
+        <a href="billing.html" class="nav-item" data-page="billing">
+          <i class="fa-solid fa-file-invoice-dollar nav-icon"></i>
+
+          <span class="nav-text"> Billing </span>
+        </a>
+
+        <a href="reports.html" class="nav-item active" data-page="reports">
+          <i class="fa-solid fa-chart-pie nav-icon"></i>
+
+          <span class="nav-text"> Reports </span>
+        </a>
+
+        <a href="settings.html" class="nav-item" data-page="settings">
+          <i class="fa-solid fa-gear nav-icon"></i>
+
+          <span class="nav-text"> Settings </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+
+          <span class="nav-text"> Logout </span>
+        </button>
+      </div>
+    </aside>
+
+    
+
+    <main class="main-content">
+      
+
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 id="pageTitle">Reports</h1>
+
+          <p class="page-subtitle">
+            Analyze hospital data and generate reports
+          </p>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="text" placeholder="Search reports..." />
+          </div>
+
+            <button class="notification-btn">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span class="notification-count">
+                    3
+                </span>
+
+            </button>
+
+          <button id="themToggle" class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <div class="user-profile">
+
+                    <img
+                        src="https://ui-avatars.com/api/?name=Admin+User&background=2563eb&color=ffffff"
+                        class="user-avatar"
+                        alt="User">
+
+                    <div class="user-info">
+
+                        <p id="userName">
+                            Admin User
+                        </p>
+
+                        <small id="userRole">
+                            Administrator
+                        </small>
+
+                    </div>
+
+                </div>
+      </header>
+
+     
+
+      <div class="content-wrapper">
+        
+
+        <section class="report-actions">
+          <button id="patientReportBtn" class="btn-report">
+            <div class="report-icon patient-icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+              <h3>Patient Report</h3>
+
+              <small> Patient statistics and records </small>
+            </div>
+          </button>
+
+          <button id="doctorReportBtn" class="btn-report">
+            <div class="report-icon doctor-icon">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+
+            <div>
+              <h3>Doctor Report</h3>
+
+              <small> Doctor performance details </small>
+            </div>
+          </button>
+
+          <button id="appointmentReportBtn" class="btn-report">
+            <div class="report-icon appointment-icon">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+
+            <div>
+              <h3>Appointment Report</h3>
+
+              <small> Appointment analytics </small>
+            </div>
+          </button>
+
+          <button id="revenueReportBtn" class="btn-report">
+            <div class="report-icon revenue-icon">
+              <i class="fa-solid fa-money-bill-trend-up"></i>
+            </div>
+
+            <div>
+              <h3>Revenue Report</h3>
+
+              <small> Financial analysis </small>
+            </div>
+          </button>
+        </section>
+
+        
+
+        <section class="filter-section report-filter">
+          <div class="filter-group">
+            <label> Start Date </label>
+
+            <input type="date" id="reportStartDate" class="filter-select" />
+          </div>
+
+          <span class="date-separator"> To </span>
+
+          <div class="filter-group">
+            <label> End Date </label>
+
+            <input type="date" id="reportEndDate" class="filter-select" />
+          </div>
+
+          <button id="applyFilterBtn" class="btn-secondary">
+            <i class="fa-solid fa-filter"></i>
+
+            Apply Filter
+          </button>
+
+          <button id="exportReportCsv" class="btn-secondary">
+            <i class="fa-solid fa-file-export"></i>
+
+            Export CSV
+          </button>
+        </section>
+
+        
+
+        <section class="charts-section">
+          <div class="chart-container">
+            <div class="card-header">
+              <h2 id="chart1Title">Patient Admission Trend</h2>
+
+              <i class="fa-solid fa-chart-line chart-header-icon"></i>
+            </div>
+
+            <canvas id="patientTrendChart"></canvas>
+          </div>
+
+          <div class="chart-container">
+            <div class="card-header">
+              <h2 id="chart2Title">Revenue Analysis</h2>
+
+              <i class="fa-solid fa-chart-column chart-header-icon"></i>
+            </div>
+
+            <canvas id="revenueAnalysisChart"></canvas>
+          </div>
+
+          <div class="chart-container">
+            <div class="card-header">
+              <h2 id="chart3Title">Department Distribution</h2>
+
+              <i class="fa-solid fa-chart-pie chart-header-icon"></i>
+            </div>
+
+            <canvas id="departmentChart"></canvas>
+          </div>
+
+          <div class="chart-container">
+            <div class="card-header">
+              <h2 id="chart4Title">Appointment Status</h2>
+
+              <i class="fa-solid fa-calendar-days chart-header-icon"></i>
+            </div>
+
+            <canvas id="appointmentStatusChart"></canvas>
+          </div>
+        </section>
+
+        
+
+
+        <section class="table-container">
+          <div class="card-header">
+            <h2 id="reportTableTitle">Report Details</h2>
+
+            <button class="card-btn">View Details</button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead id="reportTableHead">
+                <tr>
+                  <th>ID</th>
+
+                  <th>Name</th>
+
+                  <th>Count</th>
+
+                  <th>Date</th>
+                </tr>
+              </thead>
+
+              <tbody id="reportTable">
+                <tr>
+                  <td colspan="4" class="empty-state">
+                    <i class="fa-solid fa-file-circle-xmark"></i>
+
+                    <br />
+
+                    No data available
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        
+
+        <section class="stats-section report-stats">
+          <div class="stat-card">
+            <div class="stat-header">
+              <div>
+                <h4>Total Records</h4>
+
+                <p class="stat-number" id="totalRecords">0</p>
+              </div>
+
+              <div class="stat-icon total-patients">
+                <i class="fa-solid fa-database"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <div>
+                <h4>Total Revenue</h4>
+
+                <p class="stat-number" id="reportTotalRevenue">$0</p>
+              </div>
+
+              <div class="stat-icon total-revenue">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <div>
+                <h4>Average Value</h4>
+
+                <p class="stat-number" id="averageValue">$0</p>
+              </div>
+
+              <div class="stat-icon today-appointments">
+                <i class="fa-solid fa-chart-simple"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/reports.js"></script>
+  </body>
+</html>

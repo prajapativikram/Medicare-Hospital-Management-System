@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Patients Management | MediCare HMS</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/dashboard2.css" />
+
+    <link rel="stylesheet" href="css/forms.css" />
+
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo-circle">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+
+          <div class="logo-text">
+            <h2>MediCare</h2>
+
+            <small> Hospital Management </small>
+          </div>
+        </div>
+
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard">
+          <i class="fa-solid fa-chart-line nav-icon"></i>
+
+          <span class="nav-text"> Dashboard </span>
+        </a>
+
+        <a href="patients.html" class="nav-item active" data-page="patients">
+          <i class="fa-solid fa-user-group nav-icon"></i>
+
+          <span class="nav-text"> Patients </span>
+        </a>
+
+        <a href="doctors.html" class="nav-item" data-page="doctors">
+          <i class="fa-solid fa-user-doctor nav-icon"></i>
+
+          <span class="nav-text"> Doctors </span>
+        </a>
+
+        <a href="appointments.html" class="nav-item" data-page="appointments">
+          <i class="fa-solid fa-calendar-check nav-icon"></i>
+
+          <span class="nav-text"> Appointments </span>
+        </a>
+
+        <a href="billing.html" class="nav-item" data-page="billing">
+          <i class="fa-solid fa-file-invoice-dollar nav-icon"></i>
+
+          <span class="nav-text"> Billing </span>
+        </a>
+
+        <a href="reports.html" class="nav-item" data-page="reports">
+          <i class="fa-solid fa-chart-pie nav-icon"></i>
+
+          <span class="nav-text"> Reports </span>
+        </a>
+
+        <a href="settings.html" class="nav-item" data-page="settings">
+          <i class="fa-solid fa-gear nav-icon"></i>
+
+          <span class="nav-text"> Settings </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+
+          <span class="nav-text"> Logout </span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 id="pageTitle">Patients Management</h1>
+
+          <p class="page-subtitle">Manage patient records and information</p>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="text" placeholder="Search patients..." />
+          </div>
+          <button class="notification-btn">
+            <i class="fa-regular fa-bell"></i>
+
+            <span class="notification-count"> 3 </span>
+          </button>
+
+          <button id="themToggle" class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <div class="user-profile">
+            <img
+              src="https://ui-avatars.com/api/?name=Admin+User&background=2563eb&color=ffffff"
+              class="user-avatar"
+              alt="User"
+            />
+
+            <div class="user-info">
+              <p id="userName">Admin User</p>
+
+              <small id="userRole"> Administrator </small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-wrapper">
+        <!-- Action Bar -->
+
+        <section class="action-bar">
+          <div class="page-actions">
+            <div style="position: relative; width: 100%; margin-bottom: 20px">
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="
+                  position: absolute;
+                  left: 15px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  color: #888;
+                  z-index: 1;
+                "
+              >
+              </i>
+
+              <input
+                type="text"
+                id="searchPatient"
+                placeholder="Search by name, ID or phone..."
+                style="
+                  width: 100%;
+                  height: 42px;
+                  padding-left: 45px;
+                  border: 1px solid #ddd;
+                  border-radius: 8px;
+                  font-size: 14px;
+                  box-sizing: border-box;
+                "
+              />
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button id="addPatientBtn" class="btn-primary">
+              <i class="fa-solid fa-user-plus"></i>
+
+              Add Patient
+            </button>
+
+            <button id="exportPatientsCsv" class="btn-secondary">
+              <i class="fa-solid fa-file-csv"></i>
+
+              Export CSV
+            </button>
+          </div>
+        </section>
+
+        <!-- Filter Section -->
+
+        <section class="filter-section">
+          <div class="filter-title">
+            <i class="fa-solid fa-filter"></i>
+
+            Filters
+          </div>
+
+          <select id="filterStatus" class="filter-select">
+            <option value="">All Statuses</option>
+
+            <option value="active">Active</option>
+
+            <option value="discharged">Discharged</option>
+
+            <option value="admitted">Admitted</option>
+          </select>
+
+          <select id="filterBloodGroup" class="filter-select">
+            <option value="">All Blood Groups</option>
+
+            <option value="A+">A+</option>
+
+            <option value="A-">A-</option>
+
+            <option value="B+">B+</option>
+
+            <option value="B-">B-</option>
+
+            <option value="AB+">AB+</option>
+
+            <option value="AB-">AB-</option>
+
+            <option value="O+">O+</option>
+
+            <option value="O-">O-</option>
+          </select>
+        </section>
+
+        <!-- Patients Table -->
+
+        <section class="table-container">
+          <div class="card-header">
+            <h2>Patient Records</h2>
+
+            <span class="record-count"> All Patients </span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th onclick="sortTable('patientId')">
+                    Patient ID
+                    <i class="fa-solid fa-sort"></i>
+                  </th>
+
+                  <th onclick="sortTable('name')">
+                    Name
+                    <i class="fa-solid fa-sort"></i>
+                  </th>
+
+                  <th>Age</th>
+
+                  <th>Phone</th>
+
+                  <th>Blood Group</th>
+
+                  <th>Status</th>
+
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody id="patientsTable">
+                <tr>
+                  <td colspan="7" class="empty-state">
+                    <i class="fa-solid fa-users-slash"></i>
+
+                    <br />
+
+                    No patients found
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination -->
+
+          <div class="pagination">
+            <button id="prevBtn" class="btn-pagination">
+              <i class="fa-solid fa-arrow-left"></i>
+
+              Previous
+            </button>
+
+            <span id="pageInfo"> Page 1 </span>
+
+            <button id="nextBtn" class="btn-pagination">
+              Next
+
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <div id="patientModal" class="modal hidden">
+          <div class="modal-content large">
+            <button class="modal-close">&times;</button>
+
+            <div class="modal-header">
+              <h2 id="modalTitle">Add Patient</h2>
+
+              <p>Enter patient details below</p>
+            </div>
+
+            <form id="patientForm" class="form-grid">
+              <div class="form-group">
+                <label for="patientId"> Patient ID </label>
+
+                <input type="text" id="patientId" disabled />
+              </div>
+
+              <div class="form-group">
+                <label for="patientName"> Full Name * </label>
+
+                <input type="text" id="patientName" required />
+
+                <span class="error-msg" id="nameError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="patientAge"> Age * </label>
+
+                <input
+                  type="number"
+                  id="patientAge"
+                  min="1"
+                  max="120"
+                  required
+                />
+
+                <span class="error-msg" id="ageError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="patientGender"> Gender * </label>
+
+                <select id="patientGender" required>
+                  <option value="">Select Gender</option>
+
+                  <option value="Male">Male</option>
+
+                  <option value="Female">Female</option>
+
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="patientPhone"> Phone * </label>
+
+                <input type="tel" id="patientPhone" required />
+
+                <span class="error-msg" id="phoneError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="patientEmail"> Email </label>
+
+                <input type="email" id="patientEmail" />
+
+                <span class="error-msg" id="emailError"></span>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="patientAddress"> Address * </label>
+
+                <textarea id="patientAddress" rows="3" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="patientBloodGroup"> Blood Group * </label>
+
+                <select id="patientBloodGroup" required>
+                  <option value="">Select Blood Group</option>
+
+                  <option value="A+">A+</option>
+
+                  <option value="A-">A-</option>
+
+                  <option value="B+">B+</option>
+
+                  <option value="B-">B-</option>
+
+                  <option value="AB+">AB+</option>
+
+                  <option value="AB-">AB-</option>
+
+                  <option value="O+">O+</option>
+
+                  <option value="O-">O-</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="patientDisease"> Disease / Condition * </label>
+
+                <input type="text" id="patientDisease" required />
+              </div>
+
+              <div class="form-group">
+                <label for="patientDoctor"> Doctor Assigned * </label>
+
+                <select id="patientDoctor" required></select>
+              </div>
+
+              <div class="form-group">
+                <label for="patientAdmissionDate"> Admission Date * </label>
+
+                <input type="date" id="patientAdmissionDate" required />
+
+                <span class="error-msg" id="dateError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="patientStatus"> Status * </label>
+
+                <select id="patientStatus" required>
+                  <option value="">Select Status</option>
+
+                  <option value="active">Active</option>
+
+                  <option value="discharged">Discharged</option>
+
+                  <option value="admitted">Admitted</option>
+                </select>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-submit">
+                  <i class="fa-solid fa-save"></i>
+
+                  Save Patient
+                </button>
+
+                <button type="button" id="cancelBtn" class="btn-cancel">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="confirmDialog" class="modal hidden">
+          <div class="modal-content small">
+            <div class="delete-icon">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <h2>Confirm Delete</h2>
+
+            <p id="confirmMessage">
+              Are you sure you want to delete this patient?
+            </p>
+
+            <div class="modal-actions">
+              <button id="confirmBtn" class="btn-danger">
+                <i class="fa-solid fa-trash"></i>
+
+                Delete
+              </button>
+
+              <button id="cancelConfirmBtn" class="btn-secondary">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toast Notification -->
+
+        <div id="toast" class="toast hidden"></div>
+      </div>
+    </main>
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/patient.js"></script>
+  </body>
+</html>

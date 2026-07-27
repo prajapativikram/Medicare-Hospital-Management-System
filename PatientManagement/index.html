@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <span class="logo-icon">🏥</span>
+          <h1>MediCare</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="login.html" class="btn-login">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Welcome to MediCare</h2>
+        <p>Modern Hospital Management System for Efficient Patient Care</p>
+        <a href="login.html" class="btn-primary">Get Started</a>
+      </div>
+      <div class="hero-image">
+        <div class="floating-card card-3">
+          <span>👨‍⚕️</span>
+          <p>Expert Doctors</p>
+        </div>
+        <div class="floating-card card-2">
+          <span>📋</span>
+          <p>Patient Records</p>
+        </div>
+        <div class="floating-card card">
+          <span>📅</span>
+          <p>Appointments</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <h2>Why Choose MediCare?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💾</div>
+          <h3>Secure Data Storage</h3>
+          <p>All patient records securely stored with encryption</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Fast & Efficient</h3>
+          <p>Instant access to patient information and records</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Analytics & Reports</h3>
+          <p>Real-time analytics and detailed reports</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Responsive Design</h3>
+          <p>Works seamlessly on all devices</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure Authentication</h3>
+          <p>Advanced security for user authentication</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌙</div>
+          <h3>Dark Mode</h3>
+          <p>Easy on the eyes with dark mode support</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      style="
+        padding: 80px 8%;
+        background: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+      "
+    >
+      <!-- Section Heading -->
+      <div style="text-align: center; margin-bottom: 60px">
+        <h2 style="font-size: 42px; color: #1e3a8a; margin-bottom: 15px">
+          About MediCare
+        </h2>
+
+        <p
+          style="
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+          "
+        >
+          MediCare is a modern Hospital Management System built to simplify
+          healthcare operations by efficiently managing patients, doctors,
+          appointments, billing, and medical records through one centralized
+          platform.
+        </p>
+      </div>
+
+      <!-- Main Content -->
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 50px;
+          flex-wrap: wrap;
+        "
+      >
+        <!-- Left Content -->
+        <div style="flex: 1; min-width: 320px">
+          <h3 style="font-size: 32px; color: #1e40af; margin-bottom: 20px">
+            Transforming Healthcare with Technology
+          </h3>
+
+          <p
+            style="
+              font-size: 17px;
+              color: #555;
+              line-height: 1.9;
+              margin-bottom: 20px;
+            "
+          >
+            MediCare provides hospitals and clinics with a smart, secure, and
+            easy-to-use digital platform for managing daily operations. From
+            patient registration to appointment scheduling and billing, every
+            process is designed to improve efficiency while reducing paperwork.
+          </p>
+
+          <p
+            style="
+              font-size: 17px;
+              color: #555;
+              line-height: 1.9;
+              margin-bottom: 30px;
+            "
+          >
+            The system focuses on delivering an intuitive user experience,
+            helping healthcare professionals access information quickly, improve
+            productivity, and provide better patient care.
+          </p>
+
+          <!-- Features -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: 15px;
+            "
+          >
+            <div
+              style="
+                background: #f8fbff;
+                padding: 15px 20px;
+                border-radius: 12px;
+                border-left: 5px solid #2563eb;
+              "
+            >
+              ✅ Patient Record Management
+            </div>
+
+            <div
+              style="
+                background: #f8fbff;
+                padding: 15px 20px;
+                border-radius: 12px;
+                border-left: 5px solid #2563eb;
+              "
+            >
+              ✅ Doctor Management
+            </div>
+
+            <div
+              style="
+                background: #f8fbff;
+                padding: 15px 20px;
+                border-radius: 12px;
+                border-left: 5px solid #2563eb;
+              "
+            >
+              ✅ Appointment Scheduling
+            </div>
+
+            <div
+              style="
+                background: #f8fbff;
+                padding: 15px 20px;
+                border-radius: 12px;
+                border-left: 5px solid #2563eb;
+              "
+            >
+              ✅ Billing & Invoicing
+            </div>
+
+            <div
+              style="
+                background: #f8fbff;
+                padding: 15px 20px;
+                border-radius: 12px;
+                border-left: 5px solid #2563eb;
+              "
+            >
+              ✅ Secure Authentication
+            </div>
+
+            <div
+              style="
+                background: #f8fbff;
+                padding: 15px 20px;
+                border-radius: 12px;
+                border-left: 5px solid #2563eb;
+              "
+            >
+              ✅ Dashboard & Reports
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Stats -->
+        <div style="flex: 1; min-width: 320px">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 25px;
+            "
+          >
+            <div
+              style="
+                background: #ffffff;
+                padding: 35px 20px;
+                text-align: center;
+                border-radius: 18px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+              "
+            >
+              <div style="font-size: 48px">👨‍⚕️</div>
+
+              <h3 style="font-size: 36px; color: #2563eb; margin: 15px 0 5px">
+                50+
+              </h3>
+
+              <p style="color: #666; font-size: 16px">Expert Doctors</p>
+            </div>
+
+            <div
+              style="
+                background: #ffffff;
+                padding: 35px 20px;
+                text-align: center;
+                border-radius: 18px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+              "
+            >
+              <div style="font-size: 48px">🏥</div>
+
+              <h3 style="font-size: 36px; color: #2563eb; margin: 15px 0 5px">
+                500+
+              </h3>
+
+              <p style="color: #666; font-size: 16px">Registered Patients</p>
+            </div>
+
+            <div
+              style="
+                background: #ffffff;
+                padding: 35px 20px;
+                text-align: center;
+                border-radius: 18px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+              "
+            >
+              <div style="font-size: 48px">📅</div>
+
+              <h3 style="font-size: 36px; color: #2563eb; margin: 15px 0 5px">
+                1200+
+              </h3>
+
+              <p style="color: #666; font-size: 16px">Appointments</p>
+            </div>
+
+            <div
+              style="
+                background: #ffffff;
+                padding: 35px 20px;
+                text-align: center;
+                border-radius: 18px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+              "
+            >
+              <div style="font-size: 48px">⭐</div>
+
+              <h3 style="font-size: 36px; color: #2563eb; margin: 15px 0 5px">
+                99.9%
+              </h3>
+
+              <p style="color: #666; font-size: 16px">Service Reliability</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get In Touch Section -->
+    <section
+      id="contact"
+      style="
+        padding: 80px 8%;
+        background: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+      "
+    >
+      <!-- Section Heading -->
+      <div style="text-align: center; margin-bottom: 60px">
+        <h2 style="font-size: 42px; color: #1e3a8a; margin-bottom: 15px">
+          Get In Touch
+        </h2>
+
+        <p
+          style="
+            max-width: 700px;
+            margin: auto;
+            color: #666;
+            font-size: 18px;
+            line-height: 1.8;
+          "
+        >
+          Have questions, feedback, or need assistance? Our team is here to
+          help. Feel free to reach out to us using the contact details below or
+          simply send us a message.
+        </p>
+      </div>
+
+      <!-- Contact Container -->
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: 40px;
+          justify-content: space-between;
+          align-items: flex-start;
+        "
+      >
+        <!-- Contact Information -->
+        <div style="flex: 1; min-width: 320px">
+          <div
+            style="
+              background: #f8fbff;
+              padding: 35px;
+              border-radius: 18px;
+              box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            "
+          >
+            <h3 style="color: #2563eb; font-size: 30px; margin-bottom: 25px">
+              Contact Information
+            </h3>
+
+            <div style="margin-bottom: 25px">
+              <h4 style="margin: 0; color: #111">📍 Address</h4>
+              <p style="margin-top: 8px; color: #666; line-height: 1.7">
+                123 Healthcare Avenue<br />
+                Durgapur, WB, India - 713206
+              </p>
+            </div>
+
+            <div style="margin-bottom: 25px">
+              <h4 style="margin: 0; color: #111">📞 Phone</h4>
+              <p style="margin-top: 8px; color: #666">+91 98765 43210</p>
+            </div>
+
+            <div style="margin-bottom: 25px">
+              <h4 style="margin: 0; color: #111">✉️ Email</h4>
+              <p style="margin-top: 8px; color: #666">support@medicare.com</p>
+            </div>
+
+            <div style="margin-bottom: 25px">
+              <h4 style="margin: 0; color: #111">🕒 Working Hours</h4>
+              <p style="margin-top: 8px; color: #666; line-height: 1.7">
+                Monday - Saturday<br />
+                9:00 AM - 6:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div style="flex: 1; min-width: 340px">
+          <form
+            style="
+              background: #ffffff;
+              padding: 35px;
+              border-radius: 18px;
+              box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            "
+          >
+            <h3 style="font-size: 30px; color: #2563eb; margin-bottom: 25px">
+              Send Us a Message
+            </h3>
+
+            <div style="margin-bottom: 18px">
+              <label
+                style="display: block; margin-bottom: 8px; font-weight: bold"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                required
+                style="
+                  width: 100%;
+                  padding: 14px;
+                  border: 1px solid #ccc;
+                  border-radius: 10px;
+                  font-size: 16px;
+                  box-sizing: border-box;
+                "
+              />
+            </div>
+
+            <div style="margin-bottom: 18px">
+              <label
+                style="display: block; margin-bottom: 8px; font-weight: bold"
+                >Phone Number</label
+              >
+              <input
+                type="tel"
+                placeholder="Enter your phone number"
+                required
+                style="
+                  width: 100%;
+                  padding: 14px;
+                  border: 1px solid #ccc;
+                  border-radius: 10px;
+                  font-size: 16px;
+                  box-sizing: border-box;
+                "
+              />
+            </div>
+
+            <div style="margin-bottom: 18px">
+              <label
+                style="display: block; margin-bottom: 8px; font-weight: bold"
+                >Subject</label
+              >
+
+              <select
+                required
+                style="
+                  width: 100%;
+                  padding: 14px;
+                  border: 1px solid #ccc;
+                  border-radius: 10px;
+                  font-size: 16px;
+                  box-sizing: border-box;
+                "
+              >
+                <option value="">Select Subject</option>
+                <option>General Inquiry</option>
+                <option>Appointment Support</option>
+                <option>Billing Support</option>
+                <option>Technical Support</option>
+                <option>Feedback</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 22px">
+              <label
+                style="display: block; margin-bottom: 8px; font-weight: bold"
+                >Message</label
+              >
+
+              <textarea
+                rows="6"
+                placeholder="Write your message here..."
+                required
+                style="
+                  width: 100%;
+                  padding: 14px;
+                  border: 1px solid #ccc;
+                  border-radius: 10px;
+                  font-size: 16px;
+                  resize: vertical;
+                  box-sizing: border-box;
+                "
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              style="
+                background: #2563eb;
+                color: white;
+                border: none;
+                padding: 15px 35px;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 17px;
+                font-weight: bold;
+                transition: 0.3s;
+              "
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        &copy; 2026 MediCare Hospital Management System. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="js/utils.js"></script>
+  </body>
+</html>

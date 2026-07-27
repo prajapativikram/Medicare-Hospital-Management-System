@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard | MediCare Hospital Management System</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard2.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo-circle">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+
+          <div class="logo-text">
+            <h2>MediCare</h2>
+            <small>Hospital Management</small>
+          </div>
+        </div>
+
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item active" data-page="dashboard">
+          <i class="fa-solid fa-chart-line nav-icon"></i>
+
+          <span class="nav-text"> Dashboard </span>
+        </a>
+
+        <a href="patients.html" class="nav-item" data-page="patients">
+          <i class="fa-solid fa-users nav-icon"></i>
+
+          <span class="nav-text"> Patients </span>
+        </a>
+
+        <a href="doctors.html" class="nav-item" data-page="doctors">
+          <i class="fa-solid fa-user-doctor nav-icon"></i>
+
+          <span class="nav-text"> Doctors </span>
+        </a>
+
+        <a href="appointments.html" class="nav-item" data-page="appointments">
+          <i class="fa-solid fa-calendar-check nav-icon"></i>
+
+          <span class="nav-text"> Appointments </span>
+        </a>
+
+        <a href="billing.html" class="nav-item" data-page="billing">
+          <i class="fa-solid fa-file-invoice-dollar nav-icon"></i>
+
+          <span class="nav-text"> Billing </span>
+        </a>
+
+        <a href="reports.html" class="nav-item" data-page="reports">
+          <i class="fa-solid fa-chart-pie nav-icon"></i>
+
+          <span class="nav-text"> Reports </span>
+        </a>
+
+        <a href="settings.html" class="nav-item" data-page="settings">
+          <i class="fa-solid fa-gear nav-icon"></i>
+
+          <span class="nav-text"> Settings </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+
+          <span class="nav-text"> Logout </span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 id="pageTitle">Dashboard</h1>
+
+          <p class="page-subtitle">
+            Welcome back. Here's what's happening today.
+          </p>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Search -->
+
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="text" placeholder="Search patients, doctors..." />
+          </div>
+
+          <!-- Notification -->
+
+          <button class="notification-btn">
+            <i class="fa-regular fa-bell"></i>
+
+            <span class="notification-count"> 3 </span>
+          </button>
+
+          <!-- Theme -->
+
+          <button id="themToggle" class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- User -->
+
+          <div class="user-profile">
+            <img
+              src="https://ui-avatars.com/api/?name=Admin+User&background=2563eb&color=ffffff"
+              class="user-avatar"
+              alt="User"
+            />
+
+            <div class="user-info">
+              <p id="userName">Admin User</p>
+
+              <small id="userRole"> Administrator </small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-wrapper">
+        <section class="stats-section">
+          <!-- Patients -->
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <div>
+                <h4>Total Patients</h4>
+
+                <p class="stat-number" id="totalPatients">0</p>
+              </div>
+
+              <div class="stat-icon total-patients">
+                <i class="fa-solid fa-users"></i>
+              </div>
+            </div>
+
+            <div class="stat-footer">
+              <span class="trend positive">
+                <i class="fa-solid fa-arrow-up"></i>
+
+                12%
+              </span>
+
+              <span> Active Patients </span>
+            </div>
+          </div>
+
+          <!-- Doctors -->
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <div>
+                <h4>Total Doctors</h4>
+
+                <p class="stat-number" id="totalDoctors">0</p>
+              </div>
+
+              <div class="stat-icon total-doctors">
+                <i class="fa-solid fa-user-doctor"></i>
+              </div>
+            </div>
+
+            <div class="stat-footer">
+              <span class="trend positive">
+                <i class="fa-solid fa-arrow-up"></i>
+
+                6%
+              </span>
+
+              <span> Medical Staff </span>
+            </div>
+          </div>
+
+          <!-- Today's Appointment -->
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <div>
+                <h4>Today's Appointments</h4>
+
+                <p class="stat-number" id="todayAppointments">0</p>
+              </div>
+
+              <div class="stat-icon today-appointments">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+            </div>
+
+            <div class="stat-footer">
+              <span class="trend warning">
+                <i class="fa-solid fa-clock"></i>
+
+                Today
+              </span>
+
+              <span> Scheduled Visits </span>
+            </div>
+          </div>
+
+          <!-- Revenue -->
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <div>
+                <h4>Monthly Revenue</h4>
+
+                <p class="stat-number" id="totalRevenue">₹0</p>
+              </div>
+
+              <div class="stat-icon total-revenue">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+              </div>
+            </div>
+
+            <div class="stat-footer">
+              <span class="trend positive">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                18%
+              </span>
+
+              <span> This Month </span>
+            </div>
+          </div>
+        </section>
+
+        <section class="charts-section">
+          <div class="chart-container">
+            <div class="card-header">
+              <h2>Monthly Patients</h2>
+
+              <button class="card-btn">View Report</button>
+            </div>
+
+            <canvas id="patientsChart"></canvas>
+          </div>
+
+          <div class="chart-container">
+            <div class="card-header">
+              <h2>Revenue Analytics</h2>
+
+              <button class="card-btn">Export</button>
+            </div>
+
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </section>
+
+        <section class="tables-section">
+          <!-- Recent Appointments -->
+
+          <div class="table-container">
+            <div class="card-header">
+              <h2>Recent Appointments</h2>
+
+              <button class="card-btn">View All</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Patient</th>
+
+                    <th>Doctor</th>
+
+                    <th>Date</th>
+
+                    <th>Time</th>
+
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody id="recentAppointmentsTable">
+                  <tr>
+                    <td colspan="5" class="empty-state">
+                      No appointments found
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Latest Patients -->
+
+          <div class="table-container">
+            <div class="card-header">
+              <h2>Latest Patients</h2>
+
+              <button class="card-btn">View All</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Patient ID</th>
+
+                    <th>Name</th>
+
+                    <th>Phone</th>
+
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody id="latestPatientsTable">
+                  <tr>
+                    <td colspan="4" class="empty-state">No patients found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Toast -->
+
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Chart JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Existing JS Files -->
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
