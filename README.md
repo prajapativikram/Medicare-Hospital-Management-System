@@ -1,5 +1,13 @@
 # 🏥 MediCare Hospital Management System
 
+![GitHub stars](https://img.shields.io/github/stars/prajapativikram/Medicare-Hospital-Management-System?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/prajapativikram/Medicare-Hospital-Management-System?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/prajapativikram/Medicare-Hospital-Management-System?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/prajapativikram/Medicare-Hospital-Management-System?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/prajapativikram/Medicare-Hospital-Management-System?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/prajapativikram/Medicare-Hospital-Management-System?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/prajapativikram/Medicare-Hospital-Management-System?style=for-the-badge)
+
 A modern, responsive Hospital Management System built using **HTML, CSS, and JavaScript**. The application provides an intuitive dashboard for managing patients, doctors, appointments, billing, reports, and hospital settings with a clean and professional user interface.
 
 ---
